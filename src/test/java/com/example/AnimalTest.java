@@ -3,8 +3,11 @@ package com.example;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
 
 public class AnimalTest {
 
@@ -27,14 +30,18 @@ public class AnimalTest {
         Assert.assertTrue(animal.getFood("Травоядное").containsAll(expectedFood));
     }
 
-    @Test(expected = Exception.class)
-    public void getFoodExceptionTest() throws Exception {
-        animal.getFood("Колибри");
+    @Test
+    public void getFoodTextExceptionTest() throws Exception {
+        Throwable thrown = assertThrows(Exception.class,  () -> {
+            animal.getFood("Колибри");
+        });
+        assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", thrown.getMessage());
+
     }
 
     @Test
     public void getFamilyTest(){
-        Assert.assertEquals(animal.getFamily(),("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи"));
+        assertEquals(animal.getFamily(),("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи"));
     }
 
 

@@ -35,7 +35,7 @@ public class LionTest {
     @Test
     public void getKittensPositiveTest() throws Exception {
         Lion lion = new Lion("Самец", feline);
-        Mockito.when(feline.getKittens()).thenReturn(1);
+        Mockito.when(lion.getKittens()).thenReturn(1);
         Assert.assertEquals(1,lion.getKittens());
     }
 
