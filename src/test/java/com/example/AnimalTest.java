@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-g
+
 public class AnimalTest {
 
     private Animal animal;
